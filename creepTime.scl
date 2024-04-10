@@ -1,0 +1,39 @@
+﻿FUNCTION_BLOCK "creepTime"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT 
+      bPhotoCellTrigger : Bool;
+   END_VAR
+
+   VAR_OUTPUT 
+      bCreepSpeedActive : Bool;
+      tElapsedTime : Time;
+      tRemainingTime : Time;
+   END_VAR
+
+   VAR 
+      offDelayTimer {InstructionName := 'TOF_TIME'; LibVersion := '1.0'} : TOF_TIME;
+   END_VAR
+
+   VAR_TEMP 
+      tempoffTimeDelay : Time_Of_Day;
+      tempRemainingTime : Time_Of_Day;
+   END_VAR
+
+   VAR CONSTANT 
+      offTimeDelay : Time := T#10s;
+   END_VAR
+
+
+BEGIN
+	#offDelayTimer(IN := #bPhotoCellTrigger,
+	               PT := #offTimeDelay,
+	               Q => #bCreepSpeedActive,
+	               ET => #tElapsedTime);
+	
+	#tempoffTimeDelay := TIME_TO_TOD(IN := #offTimeDelay);
+	#tempRemainingTime := T_SUB(IN1 := #tempoffTimeDelay, IN2 := #tElapsedTime);
+	#tRemainingTime := TOD_TO_TIME(IN := #tempRemainingTime);
+	
+END_FUNCTION_BLOCK
+
