@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V16" />
+  <DocumentInfo>
+    <Created>2024-04-19T15:29:40.9384516Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V16 Update 6</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V16 Update 2</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V16 Update 6</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Test Suite Advanced</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>SINAMICS Startdrive Advanced</DisplayName>
+        <DisplayVersion>V16 Update 5</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>SINAMICS Startdrive G130, G150, S120, S150, SINAMICS MV, S210</DisplayName>
+        <DisplayVersion>V16 Update 5</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>SINAMICS Startdrive G110M, G120, G120C, G120D, G120P, G115D</DisplayName>
+        <DisplayVersion>V16 Update 5</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V16 Update 6</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC Advanced</DisplayName>
+        <DisplayVersion>V16 Update 6</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Types.PlcStruct ID="0">
+    <AttributeList>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v4">
+  <Section Name="None">
+    <Member Name="Status" Datatype="&quot;SCA_Status&quot;"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="None"><Member Name="Auto" Datatype="Bool" /><Member Name="Manual" Datatype="Bool" /><Member Name="Reset" Datatype="Bool" /><Member Name="Power_on" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="IO" Datatype="&quot;SCA_slatConveyor_IO&quot;"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="None"><Member Name="Input" Datatype="&quot;SCA_slatConveyor_IO_Input&quot;"><Sections><Section Name="None"><Member Name="Safety_switch" Datatype="Bool" /><Member Name="Entry_pec" Datatype="Bool" /><Member Name="Exit_pec" Datatype="Bool" /><Member Name="Next_entry_pec" Datatype="Bool" /><Member Name="Prev_exit_pec" Datatype="Bool" /><Member Name="Man_cnv_fwd" Datatype="Bool" /><Member Name="Man_cnv_rev" Datatype="Bool" /></Section></Sections></Member></Section></Sections></Member>
+    <Member Name="Control" Datatype="&quot;RMP_UDT_CONTROL&quot;"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="None"><Member Name="Fwd_request" Datatype="Bool" /><Member Name="Rev_request" Datatype="Bool" /><Member Name="Fwd_request_on" Datatype="Bool" /><Member Name="Rev_request_on" Datatype="Bool" /><Member Name="Fwd_transfer" Datatype="Bool" /><Member Name="Rev_transfer" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="Frq" Datatype="&quot;RMP_BIF_FRQ_SPD&quot;"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="None"><Member Name="Speed_req" Datatype="Int" /><Member Name="Torque_req" Datatype="Int" /><Member Name="Delay" Datatype="Time" /><Member Name="Run_fwd" Datatype="Bool" /><Member Name="Run_rev" Datatype="Bool" /><Member Name="Alarm_on" Datatype="Bool" /><Member Name="Speed_CV" Datatype="Int" /><Member Name="Torque_CV" Datatype="Int" /><Member Name="Alarm_number" Datatype="Word" /><Member Name="Status" Datatype="Int" /><Member Name="Error" Datatype="Int" /></Section></Sections></Member>
+    <Member Name="Interlock1_Rotation" Datatype="&quot;SCA_Interlock&quot;"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Rotation</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="Fwd_int_on" Datatype="Bool" /><Member Name="Rev_int_on" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="Interlock_Lift" Datatype="&quot;SCA_Interlock&quot;"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Lift</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="Fwd_int_on" Datatype="Bool" /><Member Name="Rev_int_on" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="Flags" Datatype="&quot;SCA_Flags&quot;"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="None"><Member Name="Speed_1" Datatype="Bool" /><Member Name="Speed_2" Datatype="Bool" /><Member Name="Speed_3" Datatype="Bool" /><Member Name="Data_ok" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="Positioning" Datatype="&quot;RMP_BIF_POSITIONING&quot;"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="None"><Member Name="Positioning_on" Datatype="Bool" /><Member Name="Target" Datatype="DInt" /><Member Name="Tolerance" Datatype="DInt" /><Member Name="Slow_start" Datatype="DInt" /><Member Name="Slow" Datatype="DInt" /><Member Name="Max_speed" Datatype="Int" /><Member Name="Min_speed" Datatype="Int" /><Member Name="Delay" Datatype="Time" /><Member Name="Increase" Datatype="Bool" /><Member Name="Decrease" Datatype="Bool" /><Member Name="Done" Datatype="Bool" /><Member Name="Speed" Datatype="Int" /></Section></Sections></Member>
+    <Member Name="Device_name" Datatype="String[40]"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList></Member>
+  </Section>
+</Sections></Interface>
+      <IsFailsafeCompliant>false</IsFailsafeCompliant>
+      <Name>SCA_rotatingRollers</Name>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="3" CompositionName="Items">
+            <AttributeList>
+              <Culture>fi-FI</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="4" CompositionName="Items">
+            <AttributeList>
+              <Culture>sv-SE</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <MultilingualText ID="5" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="6" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="7" CompositionName="Items">
+            <AttributeList>
+              <Culture>fi-FI</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="8" CompositionName="Items">
+            <AttributeList>
+              <Culture>sv-SE</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Types.PlcStruct>
+</Document>
