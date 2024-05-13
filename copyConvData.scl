@@ -25,111 +25,271 @@ BEGIN
 	#Fullstring := CONCAT(IN1 := #Prefix, IN2 := #Tag);
 	#Fullstring := CONCAT(IN1 := #Fullstring, IN2 := #Suffix);
 	
-	REGION 2070TR
-	    "dataIBA"."2070TR".IO.Input.Safety_switch := "RH_OUT_2070TR_DB".IO.Input.Safety_switch;
-	    "dataIBA"."2070TR".IO.Input.Entry_pec := "RH_OUT_2070TR_DB".IO.Input.Entry_pec;
-	    "dataIBA"."2070TR".IO.Input.Exit_pec := "RH_OUT_2070TR_DB".IO.Input.Exit_pec;
-	    "dataIBA"."2070TR".IO.Input.Next_entry_pec := "RH_OUT_2070TR_DB".IO.Input.Next_entry_pec;
-	    "dataIBA"."2070TR".IO.Input.Prev_exit_pec := "RH_OUT_2070TR_DB".IO.Input.Prev_exit_pec;
-	    "dataIBA"."2070TR".IO.Input.Man_cnv_fwd := "RH_OUT_2070TR_DB".IO.Input.Man_cnv_fwd;
-	    "dataIBA"."2070TR".IO.Input.Man_cnv_rev := "RH_OUT_2070TR_DB".IO.Input.Man_cnv_rev;
+	REGION 2070TR // Conveyor
+	    REGION Conveyor_IO
+	        "dataIBA"."2070TR".IO.Input.Safety_switch := "RH_OUT_2070TR_DB".IO.Input.Safety_switch;
+	        "dataIBA"."2070TR".IO.Input.Entry_pec := "RH_OUT_2070TR_DB".IO.Input.Entry_pec;
+	        "dataIBA"."2070TR".IO.Input.Exit_pec := "RH_OUT_2070TR_DB".IO.Input.Exit_pec;
+	        "dataIBA"."2070TR".IO.Input.Next_entry_pec := "RH_OUT_2070TR_DB".IO.Input.Next_entry_pec;
+	        "dataIBA"."2070TR".IO.Input.Prev_exit_pec := "RH_OUT_2070TR_DB".IO.Input.Prev_exit_pec;
+	        "dataIBA"."2070TR".IO.Input.Man_cnv_fwd := "RH_OUT_2070TR_DB".IO.Input.Man_cnv_fwd;
+	        "dataIBA"."2070TR".IO.Input.Man_cnv_rev := "RH_OUT_2070TR_DB".IO.Input.Man_cnv_rev;
+	    END_REGION
 	    
 	    "dataIBA"."2070TR".Device_name := "RH_OUT_2070TR_DB".Device_name;
-	    "dataIBA"."2070TR".Status := "RH_OUT_2070TR_DB".Status;
+	    
+	    REGION Conveyor_Status
+	    "dataIBA"."2070TR".Status.Auto := "RH_OUT_2070TR_DB".Status.Auto;
+	    "dataIBA"."2070TR".Status.Manual := "RH_OUT_2070TR_DB".Status.Manual;
+	    "dataIBA"."2070TR".Status.Reset := "RH_OUT_2070TR_DB".Status.Reset;
+	    "dataIBA"."2070TR".Status.Power_on := "RH_OUT_2070TR_DB".Status.Power_on;
+	    END_REGION
+	    
 	    "dataIBA"."2070TR".Control := "RH_OUT_2070TR_DB".Control;
 	    "dataIBA"."2070TR".Frq := "RH_OUT_2070TR_DB".Frq;
-	    "dataIBA"."2070TR".Flags.Speed_1 := "RH_OUT_2070TR_DB".Flags.Speed_1;
-	    "dataIBA"."2070TR".Flags.Speed_2 := "RH_OUT_2070TR_DB".Flags.Speed_2;
-	    "dataIBA"."2070TR".Flags.Speed_3 := "RH_OUT_2070TR_DB".Flags.Speed_3;
-	    "dataIBA"."2070TR".Flags.Data_ok := "RH_OUT_2070TR_DB".Flags.Data_ok;
 	    
-	    "dataIBA"."2070TR".Drive.Input.Fwd := "RH_OUT_2070TR_DB".Drive.Fwd;
-	    "dataIBA"."2070TR".Drive.Input.Rev := "RH_OUT_2070TR_DB".Drive.Rev;
-	    "dataIBA"."2070TR".Drive.Input.Invert := "RH_OUT_2070TR_DB".Drive.Invert;
-	    "dataIBA"."2070TR".Drive.Input.Ack := "RH_OUT_2070TR_DB".Drive.Ack;
-	    "dataIBA"."2070TR".Drive.Input.Speed_req := "RH_OUT_2070TR_DB".Drive.Speed_req;
-	    "dataIBA"."2070TR".Drive.Input.Torque_req := "RH_OUT_2070TR_DB".Drive.Torque_req;
-	    "dataIBA"."2070TR".Drive.Input.Address := "RH_OUT_2070TR_DB".Drive.Address;
-	    "dataIBA"."2070TR".Drive.Input.Type := "RH_OUT_2070TR_DB".Drive.Type;
-	    "dataIBA"."2070TR".Drive.Output.Status := "RH_OUT_2070TR_DB".Drive.Status;
-	    "dataIBA"."2070TR".Drive.Output.Speed_CV := "RH_OUT_2070TR_DB".Drive.Speed_CV;
-	    "dataIBA"."2070TR".Drive.Output.Torque_CV := "RH_OUT_2070TR_DB".Drive.Torque_CV;
-	    "dataIBA"."2070TR".Drive.Output.Run_fwd := "RH_OUT_2070TR_DB".Drive.Run_fwd;
-	    "dataIBA"."2070TR".Drive.Output.Run_rev := "RH_OUT_2070TR_DB".Drive.Run_rev;
-	    "dataIBA"."2070TR".Drive.Output.Alarm := "RH_OUT_2070TR_DB".Drive.Alarm;
-	    "dataIBA"."2070TR".Drive.Output.Alarm_number := "RH_OUT_2070TR_DB".Drive.Alarm_number;
-	    "dataIBA"."2070TR".Interlock := "RH_OUT_2070TR_DB".Interlock;
+	    REGION Conveyor_Flags
+	        "dataIBA"."2070TR".Flags.Speed_1 := "RH_OUT_2070TR_DB".Flags.Speed_1;
+	        "dataIBA"."2070TR".Flags.Speed_2 := "RH_OUT_2070TR_DB".Flags.Speed_2;
+	        "dataIBA"."2070TR".Flags.Speed_3 := "RH_OUT_2070TR_DB".Flags.Speed_3;
+	        "dataIBA"."2070TR".Flags.Data_ok := "RH_OUT_2070TR_DB".Flags.Data_ok;
+	    END_REGION
+	    REGION Conveyor_Drive
+	    "dataIBA"."2070TR".Drive.Fwd := "RH_OUT_2070TR_DB".Drive.Fwd;
+	    "dataIBA"."2070TR".Drive.Rev := "RH_OUT_2070TR_DB".Drive.Rev;
+	    "dataIBA"."2070TR".Drive.Ack := "RH_OUT_2070TR_DB".Drive.Ack;
+	    "dataIBA"."2070TR".Drive.Speed_req := "RH_OUT_2070TR_DB".Drive.Speed_req;
+	    "dataIBA"."2070TR".Drive.Torque_req := "RH_OUT_2070TR_DB".Drive.Torque_req;
+	    "dataIBA"."2070TR".Drive.Address := "RH_OUT_2070TR_DB".Drive.Address;
+	    "dataIBA"."2070TR".Drive.Type := "RH_OUT_2070TR_DB".Drive.Type;
+	    "dataIBA"."2070TR".Drive.Status := "RH_OUT_2070TR_DB".Drive.Status;
+	    "dataIBA"."2070TR".Drive.Speed_CV := "RH_OUT_2070TR_DB".Drive.Speed_CV;
+	    "dataIBA"."2070TR".Drive.Torque_CV := "RH_OUT_2070TR_DB".Drive.Torque_CV;
+	    "dataIBA"."2070TR".Drive.Run_fwd := "RH_OUT_2070TR_DB".Drive.Run_fwd;
+	    "dataIBA"."2070TR".Drive.Run_rev := "RH_OUT_2070TR_DB".Drive.Run_rev;
+	    "dataIBA"."2070TR".Drive.Alarm := "RH_OUT_2070TR_DB".Drive.Alarm;
+	    "dataIBA"."2070TR".Drive.Alarm_number := "RH_OUT_2070TR_DB".Drive.Alarm_number;
+	    END_REGION
+	    
+	    "dataIBA"."2070TR".Interlock.Fwd_int_on := "RH_OUT_2070TR_DB".Interlock.Fwd_int_on;
+	    "dataIBA"."2070TR".Interlock.Rev_int_on := "RH_OUT_2070TR_DB".Interlock.Rev_int_on;
 	END_REGION
 	
-	REGION 2030TR
-	    "dataIBA"."2030TR".IO.Input.Safety_switch := "RH_OUT_2030TR_DB".IO.Input.Safety_switch;
-	    "dataIBA"."2030TR".IO.Input.Entry_pec := "RH_OUT_2030TR_DB".IO.Input.Entry_pec;
-	    "dataIBA"."2030TR".IO.Input.Exit_pec := "RH_OUT_2030TR_DB".IO.Input.Exit_pec;
-	    "dataIBA"."2030TR".IO.Input.Next_entry_pec := "RH_OUT_2030TR_DB".IO.Input.Next_entry_pec;
-	    "dataIBA"."2030TR".IO.Input.Prev_exit_pec := "RH_OUT_2030TR_DB".IO.Input.Prev_exit_pec;
-	    "dataIBA"."2030TR".IO.Input.Man_cnv_fwd := "RH_OUT_2030TR_DB".IO.Input.Man_cnv_fwd;
-	    "dataIBA"."2030TR".IO.Input.Man_cnv_rev := "RH_OUT_2030TR_DB".IO.Input.Man_cnv_rev;
+	REGION 1010MU // Stopper
+	    REGION Stopper_Status
+	        "dataIBA"."1010MU".Status.Auto := "RH_OUT_1010MU_DB".Status.Auto;
+	        "dataIBA"."1010MU".Status.Manual := "RH_OUT_1010MU_DB".Status.Manual;
+	        "dataIBA"."1010MU".Status.Reset := "RH_OUT_1010MU_DB".Status.Reset;
+	        "dataIBA"."1010MU".Status.Power_on := "RH_OUT_1010MU_DB".Status.Power_on;
+	    END_REGION
 	    
-	    "dataIBA"."2030TR".Device_name := "RH_OUT_2030TR_DB".Device_name;
-	    "dataIBA"."2030TR".Status := "RH_OUT_2030TR_DB".Status;
-	    "dataIBA"."2030TR".Control := "RH_OUT_2030TR_DB".Control;
-	    "dataIBA"."2030TR".Frq := "RH_OUT_2030TR_DB".Frq;
-	    "dataIBA"."2030TR".Flags.Speed_1 := "RH_OUT_2030TR_DB".Flags.Speed_1;
-	    "dataIBA"."2030TR".Flags.Speed_2 := "RH_OUT_2030TR_DB".Flags.Speed_2;
-	    "dataIBA"."2030TR".Flags.Speed_3 := "RH_OUT_2030TR_DB".Flags.Speed_3;
-	    "dataIBA"."2030TR".Flags.Data_ok := "RH_OUT_2030TR_DB".Flags.Data_ok;
+	    REGION Stopper_IO
+	    "dataIBA"."1010MU".IO.Input.Stopper_up := "RH_OUT_1010MU_DB".IO.Input.Stopper_up;
+	    "dataIBA"."1010MU".IO.Input.Winder_ready_to_unload := "RH_OUT_1010MU_DB".IO.Input.Winder_ready_to_unload;
+	    "dataIBA"."1010MU".IO.Input.Winder_set_unloaded := "RH_OUT_1010MU_DB".IO.Input.Winder_set_unloaded;
+	    "dataIBA"."1010MU".IO.Input.Man_stopper_up := "RH_OUT_1010MU_DB".IO.Input.Man_stopper_up;
+	    "dataIBA"."1010MU".IO.Input.Man_stopper_down := "RH_OUT_1010MU_DB".IO.Input.Man_stopper_down;
+	    "dataIBA"."1010MU".IO.Input.Man_cushion_up := "RH_OUT_1010MU_DB".IO.Input.Man_cushion_up;
+	    "dataIBA"."1010MU".IO.Input.Man_cushion_down := "RH_OUT_1010MU_DB".IO.Input.Man_cushion_down;
 	    
-	    "dataIBA"."2030TR".Drive.Input.Fwd := "RH_OUT_2030TR_DB".Drive.Fwd;
-	    "dataIBA"."2030TR".Drive.Input.Rev := "RH_OUT_2030TR_DB".Drive.Rev;
-	    "dataIBA"."2030TR".Drive.Input.Invert := "RH_OUT_2030TR_DB".Drive.Invert;
-	    "dataIBA"."2030TR".Drive.Input.Ack := "RH_OUT_2030TR_DB".Drive.Ack;
-	    "dataIBA"."2030TR".Drive.Input.Speed_req := "RH_OUT_2030TR_DB".Drive.Speed_req;
-	    "dataIBA"."2030TR".Drive.Input.Torque_req := "RH_OUT_2030TR_DB".Drive.Torque_req;
-	    "dataIBA"."2030TR".Drive.Input.Address := "RH_OUT_2030TR_DB".Drive.Address;
-	    "dataIBA"."2030TR".Drive.Input.Type := "RH_OUT_2030TR_DB".Drive.Type;
-	    "dataIBA"."2030TR".Drive.Output.Status := "RH_OUT_2030TR_DB".Drive.Status;
-	    "dataIBA"."2030TR".Drive.Output.Speed_CV := "RH_OUT_2030TR_DB".Drive.Speed_CV;
-	    "dataIBA"."2030TR".Drive.Output.Torque_CV := "RH_OUT_2030TR_DB".Drive.Torque_CV;
-	    "dataIBA"."2030TR".Drive.Output.Run_fwd := "RH_OUT_2030TR_DB".Drive.Run_fwd;
-	    "dataIBA"."2030TR".Drive.Output.Run_rev := "RH_OUT_2030TR_DB".Drive.Run_rev;
-	    "dataIBA"."2030TR".Drive.Output.Alarm := "RH_OUT_2030TR_DB".Drive.Alarm;
-	    "dataIBA"."2030TR".Drive.Output.Alarm_number := "RH_OUT_2030TR_DB".Drive.Alarm_number;
-	    "dataIBA"."2030TR".Interlock := "RH_OUT_2030TR_DB".Interlock;
+	    "dataIBA"."1010MU".IO.Output.Plate_hard_up := "RH_OUT_1010MU_DB".IO.Output.Plate_hard_up;
+	    "dataIBA"."1010MU".IO.Output.Plate_hard_down := "RH_OUT_1010MU_DB".IO.Output.Plate_hard_down;
+	    "dataIBA"."1010MU".IO.Output.Plate_cushion_up := "RH_OUT_1010MU_DB".IO.Output.Plate_cushion_up;
+	    "dataIBA"."1010MU".IO.Output.Plate_cushion_down := "RH_OUT_1010MU_DB".IO.Output.Plate_cushion_down;
+	    "dataIBA"."1010MU".IO.Output.Ready_to_receive := "RH_OUT_1010MU_DB".IO.Output.Ready_to_receive;
+	    END_REGION
+	    
+	    "dataIBA"."1010MU".Device_name := "RH_OUT_1010MU_DB".Device_name;
+	    
+	    REGION Stopper_interlocks
+	        "dataIBA"."1010MU".Interlock_1.Fwd_int_on := "RH_OUT_1010MU_DB".Interlock[1].Fwd_int_on;
+	        "dataIBA"."1010MU".Interlock_1.Rev_int_on := "RH_OUT_1010MU_DB".Interlock[1].Rev_int_on;
+	        "dataIBA"."1010MU".Interlock_2.Fwd_int_on := "RH_OUT_1010MU_DB".Interlock[2].Fwd_int_on;
+	        "dataIBA"."1010MU".Interlock_2.Rev_int_on := "RH_OUT_1010MU_DB".Interlock[2].Rev_int_on;
+	    END_REGION
+	    
+	    "dataIBA"."1010MU".Control_1 := "RH_OUT_1010MU_DB".Control[1];
+	    "dataIBA"."1010MU".Control_2 := "RH_OUT_1010MU_DB".Control[2];
 	END_REGION
-	REGION 2040TR
-	    "dataIBA"."2040TR".IO.Input.Safety_switch := "RH_OUT_2040TR_DB".IO.Input.Safety_switch;
-	    "dataIBA"."2040TR".IO.Input.Entry_pec := "RH_OUT_2040TR_DB".IO.Input.Entry_pec;
-	    "dataIBA"."2040TR".IO.Input.Exit_pec := "RH_OUT_2040TR_DB".IO.Input.Exit_pec;
-	    "dataIBA"."2040TR".IO.Input.Next_entry_pec := "RH_OUT_2040TR_DB".IO.Input.Next_entry_pec;
-	    "dataIBA"."2040TR".IO.Input.Prev_exit_pec := "RH_OUT_2040TR_DB".IO.Input.Prev_exit_pec;
-	    "dataIBA"."2040TR".IO.Input.Man_cnv_fwd := "RH_OUT_2040TR_DB".IO.Input.Man_cnv_fwd;
-	    "dataIBA"."2040TR".IO.Input.Man_cnv_rev := "RH_OUT_2040TR_DB".IO.Input.Man_cnv_rev;
+	
+	REGION 2050MA //label applicator
+	    REGION LabelAppl_Status
+	        "dataIBA"."2050MA".Status.Auto := "RH_OUT_2050MA_DB".Status.Auto;
+	        "dataIBA"."2050MA".Status.Manual := "RH_OUT_2050MA_DB".Status.Manual;
+	        "dataIBA"."2050MA".Status.Reset := "RH_OUT_2050MA_DB".Status.Reset;
+	        "dataIBA"."2050MA".Status.Power_on := "RH_OUT_2050MA_DB".Status.Power_on;
+	    END_REGION
 	    
-	    "dataIBA"."2040TR".Device_name := "RH_OUT_2040TR_DB".Device_name;
-	    "dataIBA"."2040TR".Status := "RH_OUT_2040TR_DB".Status;
-	    "dataIBA"."2040TR".Control := "RH_OUT_2040TR_DB".Control;
-	    "dataIBA"."2040TR".Frq := "RH_OUT_2040TR_DB".Frq;
-	    "dataIBA"."2040TR".Flags.Speed_1 := "RH_OUT_2040TR_DB".Flags.Speed_1;
-	    "dataIBA"."2040TR".Flags.Speed_2 := "RH_OUT_2040TR_DB".Flags.Speed_2;
-	    "dataIBA"."2040TR".Flags.Speed_3 := "RH_OUT_2040TR_DB".Flags.Speed_3;
-	    "dataIBA"."2040TR".Flags.Data_ok := "RH_OUT_2040TR_DB".Flags.Data_ok;
+	    REGION LabelAppl_IO
+	        "dataIBA"."2050MA".IO.Input.Safety_switch := "RH_OUT_2050MA_DB".IO.Input.Safety_switch;
+	        "dataIBA"."2050MA".IO.Input.Up_limit := "RH_OUT_2050MA_DB".IO.Input.Up_limit;
+	        "dataIBA"."2050MA".IO.Input.Down_limit := "RH_OUT_2050MA_DB".IO.Input.Down_limit;
+	        "dataIBA"."2050MA".IO.Input.Area_free_1 := "RH_OUT_2050MA_DB".IO.Input.Area_free_1;
+	        "dataIBA"."2050MA".IO.Input.Area_free_2 := "RH_OUT_2050MA_DB".IO.Input.Area_free_2;
+	        "dataIBA"."2050MA".IO.Input.Roll_sensing_1 := "RH_OUT_2050MA_DB".IO.Input.Roll_sensing_1;
+	        "dataIBA"."2050MA".IO.Input.Roll_sensing_2 := "RH_OUT_2050MA_DB".IO.Input.Roll_sensing_2;
+	        "dataIBA"."2050MA".IO.Input.Brake_fuse := "RH_OUT_2050MA_DB".IO.Input.Brake_fuse;
+	        "dataIBA"."2050MA".IO.Input.HS2_piston_at_home := "RH_OUT_2050MA_DB".IO.Input.HS2_piston_at_home;
+	        "dataIBA"."2050MA".IO.Input.HS3_warning := "RH_OUT_2050MA_DB".IO.Input.HS3_warning;
+	        "dataIBA"."2050MA".IO.Input.HS4_fault := "RH_OUT_2050MA_DB".IO.Input.HS4_fault;
+	        "dataIBA"."2050MA".IO.Input.Man_up := "RH_OUT_2050MA_DB".IO.Input.Man_up;
+	        "dataIBA"."2050MA".IO.Input.Man_down := "RH_OUT_2050MA_DB".IO.Input.Man_down;
+	        
+	        "dataIBA"."2050MA".IO.Output.Trigger := "RH_OUT_2050MA_DB".IO.Output.Trigger;
+	    END_REGION
 	    
-	    "dataIBA"."2040TR".Drive.Input.Fwd := "RH_OUT_2040TR_DB".Drive.Fwd;
-	    "dataIBA"."2040TR".Drive.Input.Rev := "RH_OUT_2040TR_DB".Drive.Rev;
-	    "dataIBA"."2040TR".Drive.Input.Invert := "RH_OUT_2040TR_DB".Drive.Invert;
-	    "dataIBA"."2040TR".Drive.Input.Ack := "RH_OUT_2040TR_DB".Drive.Ack;
-	    "dataIBA"."2040TR".Drive.Input.Speed_req := "RH_OUT_2040TR_DB".Drive.Speed_req;
-	    "dataIBA"."2040TR".Drive.Input.Torque_req := "RH_OUT_2040TR_DB".Drive.Torque_req;
-	    "dataIBA"."2040TR".Drive.Input.Address := "RH_OUT_2040TR_DB".Drive.Address;
-	    "dataIBA"."2040TR".Drive.Input.Type := "RH_OUT_2040TR_DB".Drive.Type;
-	    "dataIBA"."2040TR".Drive.Output.Status := "RH_OUT_2040TR_DB".Drive.Status;
-	    "dataIBA"."2040TR".Drive.Output.Speed_CV := "RH_OUT_2040TR_DB".Drive.Speed_CV;
-	    "dataIBA"."2040TR".Drive.Output.Torque_CV := "RH_OUT_2040TR_DB".Drive.Torque_CV;
-	    "dataIBA"."2040TR".Drive.Output.Run_fwd := "RH_OUT_2040TR_DB".Drive.Run_fwd;
-	    "dataIBA"."2040TR".Drive.Output.Run_rev := "RH_OUT_2040TR_DB".Drive.Run_rev;
-	    "dataIBA"."2040TR".Drive.Output.Alarm := "RH_OUT_2040TR_DB".Drive.Alarm;
-	    "dataIBA"."2040TR".Drive.Output.Alarm_number := "RH_OUT_2040TR_DB".Drive.Alarm_number;
-	    "dataIBA"."2040TR".Interlock := "RH_OUT_2040TR_DB".Interlock;
+	        "dataIBA"."2050MA".Device_name := "RH_OUT_2050MA_DB".Device_name;
+	    
+	    REGION labelAppl_Data
+	        "dataIBA"."2050MA".Data.Printing_position := "RH_OUT_2050MA_DB".Data.Printing_position;
+	        "dataIBA"."2050MA".Data.Direction := "RH_OUT_2050MA_DB".Data.Direction;
+	        "dataIBA"."2050MA".Data.Position := "RH_OUT_2050MA_DB".Data.Position;
+	        "dataIBA"."2050MA".Data.Data_next := "RH_OUT_2050MA_DB".Data.Data_next;
+	        "dataIBA"."2050MA".Data.Data_perv := "RH_OUT_2050MA_DB".Data.Data_perv;
+	    END_REGION
+	    
+	    REGION LabelAppl_interlocks
+	        "dataIBA"."2050MA".Interlock.Fwd_int_on := "RH_OUT_2050MA_DB".Interlock.Fwd_int_on;
+	        "dataIBA"."2050MA".Interlock.Rev_int_on := "RH_OUT_2050MA_DB".Interlock.Rev_int_on;
+	        
+	    END_REGION
+	        "dataIBA"."2050MA".Control := "RH_OUT_2050MA_DB".Control;
+	        "dataIBA"."2050MA".Frq := "RH_OUT_2050MA_DB".Frq;
+	        "dataIBA"."2050MA".BCR_Data := "RH_OUT_2050MA_DB".BCR_Data;
+	    END_REGION
+	REGION 2060LE // rapidDoor
+	        REGION rapidDoor_Status
+	            "dataIBA"."2060LE".Status.Auto := "RH_OUT_2070TR_DB".Status.Auto;
+	            "dataIBA"."2060LE".Status.Manual := "RH_OUT_2060LE_DB".Status.Manual;
+	            "dataIBA"."2060LE".Status.Reset := "RH_OUT_2060LE_DB".Status.Reset;
+	            "dataIBA"."2060LE".Status.Power_on := "RH_OUT_2060LE_DB".Status.Power_on;
+	        END_REGION
+	        
+	        REGION rapidDoor_IO
+	            "dataIBA"."2060LE".IO.Input.Safety_switch := "RH_OUT_2060LE_DB".IO.Input.Safety_switch;
+	            "dataIBA"."2060LE".IO.Input.Entry_pec := "RH_OUT_2060LE_DB".IO.Input.Entry_pec;
+	            "dataIBA"."2060LE".IO.Input.Exit_pec := "RH_OUT_2060LE_DB".IO.Input.Exit_pec;
+	            "dataIBA"."2060LE".IO.Input.Open := "RH_OUT_2060LE_DB".IO.Input.Open;
+	            "dataIBA"."2060LE".IO.Input.Closed := "RH_OUT_2060LE_DB".IO.Input.Closed;
+	            "dataIBA"."2060LE".IO.Input.Man_open := "RH_OUT_2060LE_DB".IO.Input.Man_open;
+	            "dataIBA"."2060LE".IO.Input.Man_close := "RH_OUT_2060LE_DB".IO.Input.Man_close;
+	            "dataIBA"."2060LE".IO.Output.Open_req := "RH_OUT_2060LE_DB".IO.Output.Open_req;
+	            "dataIBA"."2060LE".IO.Output.Close_req := "RH_OUT_2060LE_DB".IO.Output.Close_req;
+	            "dataIBA"."2060LE".IO.Output.Impulsdrift := "RH_OUT_2060LE_DB".IO.Output.Impulsdrift;
+	        END_REGION
+	        
+	        REGION rapidDoor_interlock
+	            "dataIBA"."2060LE".Interlock.Fwd_int_on := "RH_OUT_2060LE_DB".Interlock.Fwd_int_on;
+	            "dataIBA"."2060LE".Interlock.Rev_int_on := "RH_OUT_2060LE_DB".Interlock.Rev_int_on;
+	            
+	        END_REGION
+	    END_REGION
+	    
+	REGION 2130MA // inkjet marker
+	    REGION inkjet_Status
+	        "dataIBA"."2130MA".Status.Auto := "RH_OUT_2130MA_DB".Status.Auto;
+	        "dataIBA"."2130MA".Status.Manual := "RH_OUT_2130MA_DB".Status.Manual;
+	        "dataIBA"."2130MA".Status.Reset := "RH_OUT_2130MA_DB".Status.Reset;
+	        "dataIBA"."2130MA".Status.Power_on := "RH_OUT_2130MA_DB".Status.Power_on;
+	    END_REGION
+	    
+	    REGION inkjet_IO
+	        "dataIBA"."2130MA".IO.Input.Safety_switch := "RH_OUT_2130MA_DB".IO.Input.Safety_switch;
+	        "dataIBA"."2130MA".IO.Input.Arm_up := "RH_OUT_2130MA_DB".IO.Input.Arm_up;
+	        "dataIBA"."2130MA".IO.Input.Arm_down := "RH_OUT_2130MA_DB".IO.Input.Arm_down;
+	        "dataIBA"."2130MA".IO.Input.Pulse_A := "RH_OUT_2130MA_DB".IO.Input.Pulse_A;
+	        "dataIBA"."2130MA".IO.Input.Pulse_B := "RH_OUT_2130MA_DB".IO.Input.Pulse_B;
+	        "dataIBA"."2130MA".IO.Input.Area_free_1 := "RH_OUT_2130MA_DB".IO.Input.Area_free_1;
+	        "dataIBA"."2130MA".IO.Input.Area_free_2 := "RH_OUT_2130MA_DB".IO.Input.Area_free_2;
+	        "dataIBA"."2130MA".IO.Input.Man_arm_up := "RH_OUT_2130MA_DB".IO.Input.Man_arm_up;
+	        "dataIBA"."2130MA".IO.Input.Man_arm_down := "RH_OUT_2130MA_DB".IO.Input.Man_arm_down;
+	        "dataIBA"."2130MA".IO.Input.Close_to_roll := "RH_OUT_2130MA_DB".IO.Input.Close_to_roll;
+	        "dataIBA"."2130MA".IO.Input.Roll_sensing_1 := "RH_OUT_2130MA_DB".IO.Input.Roll_sensing_1;
+	        "dataIBA"."2130MA".IO.Input.Roll_sensing_2 := "RH_OUT_2130MA_DB".IO.Input.Roll_sensing_2;
+	        "dataIBA"."2130MA".IO.Output."Head Forward" := "RH_OUT_2130MA_DB".IO.Output."Head Forward";
+	        "dataIBA"."2130MA".IO.Output."Head Left" := "RH_OUT_2130MA_DB".IO.Output."Head Left";
+	    END_REGION
+	    
+	    REGION inkjet_flags
+	        "dataIBA"."2130MA".Flags.Speed_1 := "RH_OUT_2130MA_DB".Flags.Speed_1;
+	        "dataIBA"."2130MA".Flags.Speed_2 := "RH_OUT_2130MA_DB".Flags.Speed_2;
+	        "dataIBA"."2130MA".Flags.Speed_3 := "RH_OUT_2130MA_DB".Flags.Speed_3;
+	        "dataIBA"."2130MA".Flags.Speed_4 := "RH_OUT_2130MA_DB".Flags.Speed_4;
+	        "dataIBA"."2130MA".Flags.Trigger_on_p := "RH_OUT_2130MA_DB".Flags.Trigger_on_p;
+	        "dataIBA"."2130MA".Flags.Trigger_off_p := "RH_OUT_2130MA_DB".Flags.Trigger_off_p;
+	        "dataIBA"."2130MA".Flags.Device_stopped := "RH_OUT_2130MA_DB".Flags.Device_stopped;
+	        "dataIBA"."2130MA".Flags.Send_data := "RH_OUT_2130MA_DB".Flags.Send_data;
+	        "dataIBA"."2130MA".Flags.Print_data := "RH_OUT_2130MA_DB".Flags.Print_data;
+	        "dataIBA"."2130MA".Flags.Reading_done := "RH_OUT_2130MA_DB".Flags.Reading_done;
+	        "dataIBA"."2130MA".Flags."Head fwd" := "RH_OUT_2130MA_DB".Flags."Head fwd";
+	        "dataIBA"."2130MA".Flags."Head left" := "RH_OUT_2130MA_DB".Flags."Head left";
+	    END_REGION
+	    
+	    REGION inkjet_data
+	        "dataIBA"."2130MA".Data.Printing_position := "RH_OUT_2130MA_DB".Data.Printing_position;
+	        "dataIBA"."2130MA".Data.Direction := "RH_OUT_2130MA_DB".Data.Direction;
+	        "dataIBA"."2130MA".Data.Position := "RH_OUT_2130MA_DB".Data.Position;
+	        "dataIBA"."2130MA".Data.Data_next := "RH_OUT_2130MA_DB".Data.Data_next;
+	        "dataIBA"."2130MA".Data.Data_perv := "RH_OUT_2130MA_DB".Data.Data_perv;
+	    END_REGION
+	    
+	    REGION inkjet_interlock
+	        "dataIBA"."2130MA".Interlock1_Arm.Fwd_int_on := "RH_OUT_2130MA_DB".Interlock[1].Fwd_int_on;
+	        "dataIBA"."2130MA".Interlock1_Arm.Rev_int_on := "RH_OUT_2130MA_DB".Interlock[1].Rev_int_on;
+	        "dataIBA"."2130MA".Interlock2_Head.Fwd_int_on := "RH_OUT_2130MA_DB".Interlock[2].Fwd_int_on;
+	        "dataIBA"."2130MA".Interlock2_Head.Rev_int_on := "RH_OUT_2130MA_DB".Interlock[2].Rev_int_on;
+	        "dataIBA"."2130MA".Interlock3_Device.Fwd_int_on := "RH_OUT_2130MA_DB".Interlock[3].Fwd_int_on;
+	        "dataIBA"."2130MA".Interlock3_Device.Rev_int_on := "RH_OUT_2130MA_DB".Interlock[3].Rev_int_on;
+	    END_REGION
+	    "dataIBA"."2130MA".Frq := "RH_OUT_2130MA_DB".Frq;
+	    "dataIBA"."2130MA".Device_name := "RH_OUT_2130MA_DB".Device_name;
 	END_REGION
+	REGION 2160MU // rotating rollers
+	    "dataIBA"."2160MU".Device_name := "RH_OUT_2160MU_DB".Device_name;
+	    
+	    REGION rotatingRollers_Status
+	        "dataIBA"."2160MU".Status.Auto := "RH_OUT_2160MU_DB".Status.Auto;
+	        "dataIBA"."2160MU".Status.Manual := "RH_OUT_2160MU_DB".Status.Manual;
+	        "dataIBA"."2160MU".Status.Reset := "RH_OUT_2160MU_DB".Status.Reset;
+	        "dataIBA"."2160MU".Status.Power_on := "RH_OUT_2160MU_DB".Status.Power_on;
+	    END_REGION
+	    
+	    REGION rotatingRollers_IO
+	        "dataIBA"."2160MU".IO.Lifting_safety_switch_entry := "RH_OUT_2160MU_DB".IO.Input.Lifting_safety_switch_entry;
+	        "dataIBA"."2160MU".IO.Lifting_safety_switch_exit := "RH_OUT_2160MU_DB".IO.Input.Lifting_safety_switch_exit;
+	        "dataIBA"."2160MU".IO.Entry_up := "RH_OUT_2160MU_DB".IO.Input.Entry_up;
+	        "dataIBA"."2160MU".IO.Entry_down := "RH_OUT_2160MU_DB".IO.Input.Entry_down;
+	        "dataIBA"."2160MU".IO.Exit_up := "RH_OUT_2160MU_DB".IO.Input.Exit_up;
+	        "dataIBA"."2160MU".IO.Exit_down := "RH_OUT_2160MU_DB".IO.Input.Exit_down;
+	        "dataIBA"."2160MU".IO.Rotating_safety_switch := "RH_OUT_2160MU_DB".IO.Input.Rotating_safety_switch;
+	        "dataIBA"."2160MU".IO.Entry_Side_Circuit_Braker := "RH_OUT_2160MU_DB".IO.Input.Entry_Side_Circuit_Braker;
+	        "dataIBA"."2160MU".IO.Exit_Side_Circuit_Braker := "RH_OUT_2160MU_DB".IO.Input.Exit_Side_Circuit_Braker;
+	        "dataIBA"."2160MU".IO.Man_rollers_up := "RH_OUT_2160MU_DB".IO.Input.Man_rollers_up;
+	        "dataIBA"."2160MU".IO.Man_rollers_down := "RH_OUT_2160MU_DB".IO.Input.Man_rollers_down;
+	        "dataIBA"."2160MU".IO.Man_cnv_fwd := "RH_OUT_2160MU_DB".IO.Input.Man_cnv_fwd;
+	        "dataIBA"."2160MU".IO.Man_cnv_rev := "RH_OUT_2160MU_DB".IO.Input.Man_cnv_rev;
+	    END_REGION
+	    
+	    REGION rotatingRollers_Interlock
+	        "dataIBA"."2160MU".Interlock1.Fwd_int_on := "RH_OUT_2160MU_DB".Interlock[1].Fwd_int_on;
+	        "dataIBA"."2160MU".Interlock1.Rev_int_on := "RH_OUT_2160MU_DB".Interlock[1].Rev_int_on;
+	        "dataIBA"."2160MU".Interlock2.Fwd_int_on := "RH_OUT_2160MU_DB".Interlock[2].Fwd_int_on;
+	        "dataIBA"."2160MU".Interlock2.Rev_int_on := "RH_OUT_2160MU_DB".Interlock[2].Rev_int_on;
+	    END_REGION
+	    
+	    REGION rotatingRollers_Control
+	        "dataIBA"."2160MU".Control1 := "RH_OUT_2160MU_DB".Control[1];
+	        "dataIBA"."2160MU".Control2 := "RH_OUT_2160MU_DB".Control[2];
+	    END_REGION
+	    
+	    REGION rotatingRollers_Frq
+	        "dataIBA"."2160MU".Frq := "RH_OUT_2160MU_DB".Frq;
+	    END_REGION
+	    
+	    REGION rotatingRollers_Positioning
+	        "dataIBA"."2160MU".Positioning := "RH_OUT_2160MU_DB".Positioning;
+	    END_REGION
+	END_REGION
+	
 END_FUNCTION
 
